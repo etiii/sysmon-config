@@ -250,7 +250,7 @@
 			<Image condition="is">C:\Program Files\Dell\SupportAssist\pcdrcui.exe</Image> <!--Dell:SupportAssist: routine actions-->
 			<Image condition="is">C:\Program Files\Dell\SupportAssist\koala.exe</Image> <!--Dell:SupportAssist: routine actions-->
 			<ParentCommandLine condition="end with">"-outc=C:\ProgramData\Dell\CommandUpdate\inventory.xml" "-logc=C:\ProgramData\Dell\CommandUpdate\scanerrs.xml" "-lang=en" "-enc=UTF-16" </ParentCommandLine>
-			<!--Section: etiii-->
+			<!--SECTION: etiii-->
 			<CommandLine condition="contains">C:\Windows\CCM\UpdateTrustedSites.exe</CommandLine> <!-- SCCM site update-->
 			<Image condition="Image">C:\Program Files\DellTPad\Apoint.exe</Image><!-- Dell:TouchPad-->
 			<Image condition="end with">bin\ssvagent.exe</Image><!-- java binary, noise-->
@@ -745,6 +745,7 @@
 			<!--SECTION: etiii-->
 			<TargetObject condition="end with">Toolbar\WebBrowser\ITBar7Layout</TargetObject> <!-- Microsoft:IE: Extraneous activity-->
 			<Image condition="end with">bin\ssvagent.exe</Image> <!-- Java: causing performance issues, causing ~80 events per seconds writing to Wow6432Node\CLSID\{CAFEEFAC-0018-0000-0004-ABCDEFFEDCBB}\InprocServer32\(Default)-->
+			<Image condition="end with">SearchProtocolHost.exe</Image><!-- windows indexing-->
 		</RegistryEvent>
 
 	<!--SYSMON EVENT ID 15 : ALTERNATE DATA STREAM CREATED [FileCreateStreamHash]-->
