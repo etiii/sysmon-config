@@ -257,6 +257,8 @@
 			<CommandLine condition="contains">C:\Windows\CCM\UpdateTrustedSites.exe</CommandLine> <!-- SCCM site update-->
 			<Image condition="Image">C:\Program Files\DellTPad\Apoint.exe</Image><!-- Dell:TouchPad-->
 			<Image condition="end with">bin\ssvagent.exe</Image><!-- java binary, noise-->
+			<ParentCommandLine condition="begins with">C:\Windows\system32\svchost.exe -k netsvcs</ParentCommandLine> <!--Microsoft:Windows: Network services: Spawns Consent.exe-->
+			<ParentCommandLine condition="ends with">acumbrellaagent.exe</ParentCommandLine> <!--Cisco: Umbrella-->
 		</ProcessCreate>
 
 	<!--SYSMON EVENT ID 2 : FILE CREATION TIME RETROACTIVELY CHANGED IN THE FILESYSTEM [FileCreateTime]-->
@@ -531,6 +533,8 @@
 			<!--SECTION: Adobe-->
 			<TargetFilename condition="is">C:\Windows\System32\Tasks\Adobe Acrobat Update Task</TargetFilename>
 			<TargetFilename condition="is">C:\Windows\System32\Tasks\Adobe Flash Player Updater</TargetFilename>
+			<!--SECTION: etiii-->
+			<TargetFilename condition="begin with">C:\Windows\System32\Tasks\Restore Connection</TargetFilename> <!--inernal SCCM task creates this-->
 		</FileCreate>
 
 	<!--SYSMON EVENT ID 12 & 13 & 14 : REGISTRY MODIFICATION [RegistryEvent]-->
